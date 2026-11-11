@@ -1605,10 +1605,19 @@
       stroke-dashoffset: 380;
     }
 
-    /* Mask rect 3: AETA STUDIO typography below the mark */
-    .anim-text-rect {
+    /* Step 5: A E T A wordmark below the mark */
+    .anim-text-aeta {
       opacity: 0;
       transform: translateY(14px);
+      filter: blur(5px);
+      transform-origin: center;
+    }
+
+    /* Step 6: S T U D I O subtitle appearing after A E T A */
+    .anim-text-studio {
+      opacity: 0;
+      transform: translateY(12px);
+      filter: blur(4px);
       transform-origin: center;
     }
 
@@ -1625,8 +1634,12 @@
       animation: drawBlade 0.52s cubic-bezier(0.16, 1, 0.3, 1) 1.50s forwards;
     }
 
-    .logo-playing .anim-text-rect {
-      animation: revealLogoText 0.65s cubic-bezier(0.16, 1, 0.3, 1) 1.75s forwards;
+    .logo-playing .anim-text-aeta {
+      animation: revealLogoText 0.60s cubic-bezier(0.16, 1, 0.3, 1) 1.72s forwards;
+    }
+
+    .logo-playing .anim-text-studio {
+      animation: revealLogoText 0.60s cubic-bezier(0.16, 1, 0.3, 1) 2.12s forwards;
     }
 
     .logo-playing .anim-full-lock {
@@ -1664,10 +1677,12 @@
       0% {
         opacity: 0;
         transform: translateY(14px);
+        filter: blur(5px);
       }
       100% {
         opacity: 1;
         transform: translateY(0);
+        filter: blur(0px);
       }
     }
 
@@ -1759,9 +1774,14 @@
             <polygon points="384,447 508,348 546,315 596,290 552,353 518,396 445,530 339,530" />
           </clipPath>
 
-          <!-- Clip 3: AETA STUDIO Typography (y > 545, full 172..772 width) -->
-          <clipPath id="clip-logo-text">
-            <rect x="172" y="545" width="600" height="223" />
+          <!-- Clip 3: A E T A Typography (y = 545..696) -->
+          <clipPath id="clip-logo-aeta">
+            <rect x="172" y="545" width="600" height="151" />
+          </clipPath>
+
+          <!-- Clip 4: S T U D I O Typography (y = 696..768) -->
+          <clipPath id="clip-logo-studio">
+            <rect x="172" y="696" width="600" height="72" />
           </clipPath>
 
           <!-- Animated Mask 1: Continuous stroke from center-right -> right corner -> top apex -> left corner -->
@@ -1809,8 +1829,13 @@
           <use href="#aeta-raw-img" />
         </g>
 
-        <!-- Layer 3: AETA STUDIO Typography -->
-        <g clip-path="url(#clip-logo-text)" class="anim-text-rect">
+        <!-- Layer 3: A E T A Typography (appears first) -->
+        <g clip-path="url(#clip-logo-aeta)" class="anim-text-aeta">
+          <use href="#aeta-raw-img" />
+        </g>
+
+        <!-- Layer 4: S T U D I O Typography (appears second) -->
+        <g clip-path="url(#clip-logo-studio)" class="anim-text-studio">
           <use href="#aeta-raw-img" />
         </g>
       </svg>
