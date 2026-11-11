@@ -88,43 +88,44 @@
     /* Scroll-reactive laser light pulse traveling down the central spine */
     .spine-beam {
       position: absolute;
+      top: 0;
       left: 0;
       width: 1px;
       height: 240px;
       background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.75) 50%, transparent 100%);
       box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
-      top: var(--scroll-beam, 15%);
-      transition: top 0.08s linear;
+      transform: translate3d(0, var(--beam-y, 80px), 0);
+      will-change: transform;
     }
 
-    /* 2. Signature AETA 42-degree diagonal light slash sweeping across the full page */
+    /* 2. Signature AETA 42-degree diagonal light slash sweeping across the full page (GPU-locked, zero bottom seam, zero mobile jitter) */
     .diagonal-slash-bg {
       position: fixed;
-      inset: -30%;
+      top: -15lvh;
+      left: -15vw;
+      width: 130vw;
+      height: 130lvh;
       pointer-events: none;
       z-index: 0;
       background:
         linear-gradient(
           132deg,
-          transparent 43%,
-          rgba(255, 255, 255, 0.022) 48.5%,
-          rgba(255, 255, 255, 0.06) 50%,
-          rgba(255, 255, 255, 0.018) 51.5%,
-          transparent 57%
-        );
-      transform: translateY(var(--slash-shift, 0px));
-      transition: transform 0.12s ease-out;
+          transparent 41%,
+          rgba(255, 255, 255, 0.022) 47.5%,
+          rgba(255, 255, 255, 0.062) 50%,
+          rgba(255, 255, 255, 0.02) 52.5%,
+          transparent 59%
+        ),
+        radial-gradient(900px 340px at 78% 62%, rgba(255,255,255,0.035), transparent 72%),
+        radial-gradient(800px 320px at 22% 32%, rgba(255,255,255,0.03), transparent 72%);
+      transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      will-change: transform;
     }
 
-    /* Secondary ambient diagonal ribbon for depth */
     .diagonal-slash-secondary {
-      position: fixed;
-      inset: -20%;
-      pointer-events: none;
-      z-index: 0;
-      background:
-        radial-gradient(900px 320px at 80% 65%, rgba(255,255,255,0.035), transparent 70%),
-        radial-gradient(800px 300px at 20% 30%, rgba(255,255,255,0.03), transparent 70%);
+      display: none;
     }
 
     /* 3. Fixed Editorial Side Margin Labels */
@@ -1185,6 +1186,15 @@
       }
     }
 
+
+    @media (max-width: 768px) {
+      .service-card, .process-card, .review-card, .payment-card, .messenger-btn {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: linear-gradient(165deg, rgba(20, 20, 23, 0.92) 0%, rgba(11, 11, 13, 0.96) 100%);
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -1795,13 +1805,19 @@
       ambientLight.style.transform = 'translate(0px, 0px)';
     });
 
-    // Scroll-driven laser beam along the central spine + diagonal parallax
+    // 120fps rAF scroll-driven laser beam along the central spine (zero background shift jitter)
+    let ticking = false;
     window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY;
-      const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-      const pct = (scrollTop / maxScroll) * 82 + 8;
-      spineBeam.style.setProperty('--scroll-beam', `${pct}%`);
-      diagonalSlash.style.setProperty('--slash-shift', `${scrollTop * -0.08}px`);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollTop = window.scrollY;
+          const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+          const beamY = (scrollTop / maxScroll) * (window.innerHeight - 260) + 20;
+          spineBeam.style.setProperty('--beam-y', `${beamY.toFixed(1)}px`);
+          ticking = false;
+        });
+        ticking = true;
+      }
     }, { passive: true });
 
     document.querySelectorAll('.service-card').forEach(card => {
