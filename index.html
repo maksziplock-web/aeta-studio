@@ -1195,6 +1195,182 @@
       }
     }
 
+
+    /* =========================================================================
+       ANIMATED ROADMAP TRACK & SYNCHRONIZED CARD ILLUMINATION
+       ========================================================================= */
+    .roadmap-wrapper {
+      position: relative;
+      margin-bottom: 24px;
+      padding: 0 12px;
+      user-select: none;
+    }
+
+    .roadmap-line-bg {
+      position: absolute;
+      top: 18px;
+      left: calc(12.5% + 6px);
+      right: calc(12.5% + 6px);
+      height: 2px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 2px;
+      overflow: visible;
+      z-index: 1;
+    }
+
+    .roadmap-line-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: var(--roadmap-pct, 0%);
+      background: linear-gradient(90deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.95) 100%);
+      box-shadow: 0 0 16px rgba(255, 255, 255, 0.65);
+      border-radius: 2px;
+    }
+
+    /* Glowing laser tip at the leading edge of the roadmap progress */
+    .roadmap-line-fill::after {
+      content: "";
+      position: absolute;
+      right: -4px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ffffff;
+      box-shadow: 0 0 14px 3px rgba(255, 255, 255, 0.9);
+    }
+
+    .roadmap-nodes {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .roadmap-node-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .roadmap-dot {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #0b0b0d;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      position: relative;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Vertical connector stem from node down into the top of the card */
+    .roadmap-stem {
+      width: 1px;
+      height: 22px;
+      background: rgba(255, 255, 255, 0.07);
+      margin-top: 6px;
+      transition: background 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .roadmap-node-col.is-reached .roadmap-dot {
+      border-color: rgba(255, 255, 255, 0.45);
+      color: #ffffff;
+    }
+
+    .roadmap-node-col.is-active .roadmap-dot {
+      background: #ffffff;
+      color: #080808;
+      border-color: #ffffff;
+      transform: scale(1.12);
+      box-shadow: 0 0 24px rgba(255, 255, 255, 0.55);
+    }
+
+    .roadmap-node-col.is-active .roadmap-stem {
+      background: linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.15) 100%);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    /* Synchronized Process Card illumination when roadmap reaches it */
+    .process-card {
+      position: relative;
+      overflow: hidden;
+      transition:
+        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.4s ease,
+        box-shadow 0.4s ease,
+        background 0.4s ease;
+    }
+
+    /* Top edge light bar on the card when active */
+    .process-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 5%, #ffffff 50%, transparent 95%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    /* Subtle top radial spotlight inside the active card */
+    .process-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(280px circle at 50% 0%, rgba(255, 255, 255, 0.1), transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .process-card.is-reached {
+      border-color: rgba(255, 255, 255, 0.16);
+    }
+
+    .process-card.is-active {
+      transform: translateY(-6px);
+      border-color: rgba(255, 255, 255, 0.48);
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.75), 0 0 32px rgba(255, 255, 255, 0.07);
+    }
+
+    .process-card.is-active::before,
+    .process-card.is-active::after {
+      opacity: 1;
+    }
+
+    .process-card.is-active .step-number {
+      color: #ffffff;
+      text-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+    }
+
+    @media (max-width: 960px) {
+      .roadmap-wrapper {
+        margin-bottom: 20px;
+        padding: 0 4px;
+      }
+      .roadmap-nodes {
+        gap: 8px;
+      }
+      .roadmap-stem {
+        height: 14px;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -1490,26 +1666,51 @@
       <h2 class="block-title" data-i18n="proc_title">How We Work</h2>
     </div>
 
-    <div class="process-grid">
-      <div class="process-card">
+    <!-- ANIMATED ROADMAP TRACK -->
+    <div class="roadmap-wrapper reveal" id="roadmap-wrapper">
+      <div class="roadmap-line-bg">
+        <div class="roadmap-line-fill" id="roadmap-line-fill"></div>
+      </div>
+      <div class="roadmap-nodes">
+        <div class="roadmap-node-col is-reached is-active" data-step="0">
+          <div class="roadmap-dot">01</div>
+          <div class="roadmap-stem"></div>
+        </div>
+        <div class="roadmap-node-col" data-step="1">
+          <div class="roadmap-dot">02</div>
+          <div class="roadmap-stem"></div>
+        </div>
+        <div class="roadmap-node-col" data-step="2">
+          <div class="roadmap-dot">03</div>
+          <div class="roadmap-stem"></div>
+        </div>
+        <div class="roadmap-node-col" data-step="3">
+          <div class="roadmap-dot">04</div>
+          <div class="roadmap-stem"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="process-grid" id="process-grid">
+      <div class="process-card is-reached is-active" data-step="0">
         <span class="step-number" data-i18n="step1_num">Step 01</span>
         <h3 class="step-title" data-i18n="step1_title">Brief &amp; Scope</h3>
         <p class="step-desc" data-i18n="step1_desc">Message us in any messenger. We discuss your goals, references, exact timeline, and lock in a fixed price within 15 minutes.</p>
       </div>
 
-      <div class="process-card">
+      <div class="process-card" data-step="1">
         <span class="step-number" data-i18n="step2_num">Step 02</span>
         <h3 class="step-title" data-i18n="step2_title">Concept &amp; Direction</h3>
         <p class="step-desc" data-i18n="step2_desc">We craft the initial visual concepts, layout architecture, or brand marks and present high-resolution previews for your feedback.</p>
       </div>
 
-      <div class="process-card">
+      <div class="process-card" data-step="2">
         <span class="step-number" data-i18n="step3_num">Step 03</span>
         <h3 class="step-title" data-i18n="step3_title">Refinement</h3>
         <p class="step-desc" data-i18n="step3_desc">We polish every detail, typography, and color balance based on your comments until the final result matches your vision 100%.</p>
       </div>
 
-      <div class="process-card">
+      <div class="process-card" data-step="3">
         <span class="step-number" data-i18n="step4_num">Step 04</span>
         <h3 class="step-title" data-i18n="step4_title">Master Delivery</h3>
         <p class="step-desc" data-i18n="step4_desc">You receive all production-ready master files (vectors, source layouts, guideline books, or deployed code) with full commercial rights.</p>
@@ -1829,7 +2030,7 @@
     });
 
     // Bidirectional Scroll Reveal Observer (animates every time scrolling both down and up)
-    const revealTargets = document.querySelectorAll('.hero-logo-container, .hero-bottom, .block-header, .section-divider, .service-card, .process-card, .review-card, .payment-card, .payment-terms-bar, .messenger-btn, footer');
+    const revealTargets = document.querySelectorAll('.hero-logo-container, .hero-bottom, .block-header, .section-divider, .service-card, .roadmap-wrapper, .process-card, .review-card, .payment-card, .payment-terms-bar, .messenger-btn, footer');
     revealTargets.forEach((el) => {
       el.style.animation = 'none';
       el.classList.add('reveal');
@@ -2319,6 +2520,72 @@
     }
 
     detectInitialLanguage();
+
+    // =========================================================================
+    // SYNCHRONIZED ROADMAP PROGRESS & CARD HIGHLIGHT ENGINE
+    // =========================================================================
+    const roadmapFill = document.getElementById('roadmap-line-fill');
+    const roadmapNodes = document.querySelectorAll('.roadmap-node-col');
+    const processCards = document.querySelectorAll('.process-card');
+    let roadmapHoverStep = null;
+    let roadmapStart = performance.now();
+    const cycleDuration = 7200; // 7.2 seconds for a full smooth sweep across 01 -> 02 -> 03 -> 04
+
+    function updateRoadmapState(pct, activeIdx) {
+      roadmapFill.style.setProperty('--roadmap-pct', `${pct.toFixed(2)}%`);
+      roadmapNodes.forEach((node, idx) => {
+        node.classList.toggle('is-reached', idx <= activeIdx);
+        node.classList.toggle('is-active', idx === activeIdx);
+      });
+      processCards.forEach((card, idx) => {
+        card.classList.toggle('is-reached', idx <= activeIdx);
+        card.classList.toggle('is-active', idx === activeIdx);
+      });
+    }
+
+    function animateRoadmap(now) {
+      if (roadmapHoverStep !== null) {
+        const targetPct = (roadmapHoverStep / 3) * 100;
+        updateRoadmapState(targetPct, roadmapHoverStep);
+        roadmapStart = now - (roadmapHoverStep / 4) * cycleDuration;
+      } else {
+        const elapsed = (now - roadmapStart) % cycleDuration;
+        const progress = elapsed / cycleDuration; // 0.0 -> 1.0
+        // Map progress across the 4 steps:
+        // 0.00..0.22 -> moving 0->1, 0.22..0.47 -> 1->2, 0.47..0.72 -> 2->3, 0.72..0.92 -> hold on 4, 0.92..1.0 -> smooth reset
+        let pct = 0;
+        let activeIdx = 0;
+        if (progress < 0.88) {
+          const norm = progress / 0.88; // 0..1
+          pct = norm * 100;
+          if (pct < 24) activeIdx = 0;
+          else if (pct < 58) activeIdx = 1;
+          else if (pct < 90) activeIdx = 2;
+          else activeIdx = 3;
+        } else {
+          // Hold slightly at 100% then fade back to 0
+          const tail = (progress - 0.88) / 0.12;
+          pct = 100 * (1 - tail);
+          activeIdx = tail < 0.5 ? 3 : 0;
+        }
+        updateRoadmapState(pct, activeIdx);
+      }
+      requestAnimationFrame(animateRoadmap);
+    }
+
+    roadmapNodes.forEach((node, idx) => {
+      node.addEventListener('mouseenter', () => { roadmapHoverStep = idx; });
+      node.addEventListener('mouseleave', () => { roadmapHoverStep = null; });
+      node.addEventListener('click', () => { roadmapHoverStep = idx; });
+    });
+
+    processCards.forEach((card, idx) => {
+      card.addEventListener('mouseenter', () => { roadmapHoverStep = idx; });
+      card.addEventListener('mouseleave', () => { roadmapHoverStep = null; });
+    });
+
+    requestAnimationFrame(animateRoadmap);
+
   </script>
 
 
