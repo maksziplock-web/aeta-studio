@@ -1371,6 +1371,203 @@
       }
     }
 
+
+    /* =========================================================================
+       COMPREHENSIVE MOBILE SPACING & TYPOGRAPHY POLISH
+       ========================================================================= */
+    .review-top {
+      gap: 12px;
+      flex-wrap: nowrap;
+    }
+
+    .review-stars {
+      flex-shrink: 0;
+    }
+
+    .review-tag {
+      white-space: nowrap;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .author-loc {
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        min-height: 92svh;
+        padding: 80px 18px 64px;
+      }
+      .hero-logo-container {
+        padding: 16px 8px;
+        width: 100%;
+      }
+      .hero-logo {
+        width: clamp(220px, 70vw, 300px);
+      }
+      .hero-tagline {
+        margin-top: 28px;
+        font-size: 10.5px;
+        letter-spacing: 0.18em;
+        line-height: 1.85;
+        padding: 0 8px;
+      }
+      .hero-bottom {
+        bottom: 22px;
+        padding: 0 18px;
+      }
+      .scroll-cue {
+        font-size: 10px;
+        letter-spacing: 0.18em;
+      }
+      .wrapper {
+        padding: 64px 16px;
+      }
+      .contact-section {
+        padding-top: 64px;
+        padding-bottom: 84px;
+      }
+      .block-header {
+        margin-bottom: 36px;
+      }
+      .block-eyebrow {
+        font-size: 9.5px;
+        letter-spacing: 0.2em;
+        margin-bottom: 10px;
+        padding: 0 4px;
+      }
+      .block-title {
+        font-size: 22px;
+        letter-spacing: 0.04em;
+        line-height: 1.22;
+        padding: 0 4px;
+      }
+      .services-grid, .process-grid, .reviews-grid, .payments-grid, .messengers-grid {
+        gap: 14px;
+      }
+      .service-card, .process-card, .review-card, .payment-card {
+        padding: 22px 20px;
+        border-radius: 15px;
+        min-height: auto;
+      }
+      .card-top-row {
+        gap: 14px;
+        margin-bottom: 12px;
+      }
+      .service-studio {
+        font-size: 9px;
+        letter-spacing: 0.2em;
+        margin-bottom: 5px;
+      }
+      .service-name {
+        font-size: 17.5px;
+        line-height: 1.25;
+      }
+      .price-prefix {
+        font-size: 9px;
+        letter-spacing: 0.14em;
+      }
+      .price-amount {
+        font-size: 21px;
+      }
+      .service-description, .step-desc, .pay-desc {
+        font-size: 13px;
+        line-height: 1.58;
+        max-width: 100%;
+      }
+      .card-footer-line {
+        margin-top: 18px;
+        padding-top: 14px;
+        font-size: 9.5px;
+        letter-spacing: 0.12em;
+      }
+      /* Clean horizontal 4-node progress bar on mobile without hanging vertical stems */
+      .roadmap-wrapper {
+        margin-bottom: 22px;
+        padding: 0 6px;
+      }
+      .roadmap-stem {
+        display: none;
+      }
+      .roadmap-dot {
+        width: 32px;
+        height: 32px;
+        font-size: 10px;
+      }
+      .roadmap-line-bg {
+        top: 16px;
+      }
+      .step-number {
+        margin-bottom: 10px;
+        font-size: 10px;
+        letter-spacing: 0.22em;
+      }
+      .step-title, .pay-title {
+        font-size: 17px;
+        margin-bottom: 8px;
+      }
+      .review-top {
+        margin-bottom: 14px;
+        gap: 10px;
+      }
+      .review-stars {
+        font-size: 12px;
+        letter-spacing: 0.12em;
+      }
+      .review-tag {
+        font-size: 9px;
+        letter-spacing: 0.12em;
+        padding: 4px 10px;
+      }
+      .review-quote {
+        font-size: 13.5px;
+        line-height: 1.62;
+        margin-bottom: 20px;
+      }
+      .review-author {
+        padding-top: 14px;
+        gap: 10px;
+      }
+      .author-name {
+        font-size: 14px;
+      }
+      .author-role {
+        font-size: 11.5px;
+      }
+      .author-loc {
+        font-size: 9.5px;
+        letter-spacing: 0.14em;
+      }
+      .pay-icon-wrap {
+        width: 38px;
+        height: 38px;
+        margin-bottom: 14px;
+      }
+      .payment-terms-bar {
+        margin-top: 16px;
+        padding: 18px 20px;
+        font-size: 12px;
+        line-height: 1.55;
+        gap: 10px;
+      }
+      .messenger-btn {
+        padding: 20px 20px;
+        border-radius: 14px;
+      }
+      .messenger-left {
+        gap: 14px;
+      }
+      .messenger-icon {
+        width: 40px;
+        height: 40px;
+      }
+      .messenger-name {
+        font-size: 16px;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -1739,7 +1936,7 @@
         <div>
           <div class="review-top">
             <span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-            <span class="review-tag" data-i18n="rev1_tag">Custom Logo &amp; Brandbook</span>
+            <span class="review-tag" data-i18n="rev1_tag">Logo &amp; Brandbook</span>
           </div>
           <p class="review-quote" data-i18n="rev1_quote">
             &ldquo;AETA Studio delivered a razor-sharp minimalist mark and complete brand guideline book for our fintech launch. The geometry and attention to detail rival agencies charging ten times their rate.&rdquo;
@@ -1777,7 +1974,7 @@
         <div>
           <div class="review-top">
             <span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-            <span class="review-tag" data-i18n="rev3_tag">10x Ad Creatives Pack</span>
+            <span class="review-tag" data-i18n="rev3_tag">10x Ad Banners</span>
           </div>
           <p class="review-quote" data-i18n="rev3_quote">
             &ldquo;AdCraft Lab completely refreshed our Meta and Instagram static ad creatives. Turnaround was under 36 hours, and two of their banners immediately became our highest-ROAS ads this quarter.&rdquo;
@@ -1796,7 +1993,7 @@
         <div>
           <div class="review-top">
             <span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-            <span class="review-tag" data-i18n="rev4_tag">Full Brand Identity</span>
+            <span class="review-tag" data-i18n="rev4_tag">Brand Identity</span>
           </div>
           <p class="review-quote" data-i18n="rev4_quote">
             &ldquo;From typography hierarchy to packaging and merch mockups, Grid &amp; Type built a cohesive visual system that immediately elevated our positioning. Seamless communication from day one.&rdquo;
@@ -2101,16 +2298,16 @@
         step4_desc: "You receive all production-ready master files (vectors, source layouts, guideline books, or deployed code) with full commercial rights.",
         rev_eyebrow: "Verified Client Feedback",
         rev_title: "Client Reviews",
-        rev1_tag: "Custom Logo & Brandbook",
+        rev1_tag: "Logo & Brandbook",
         rev1_quote: "“AETA Studio delivered a razor-sharp minimalist mark and complete brand guideline book for our fintech launch. The geometry and attention to detail rival agencies charging ten times their rate.”",
         rev1_role: "Co-Founder, Veloce Labs",
         rev2_tag: "Landing Page + Dev",
         rev2_quote: "“We needed a high-converting dark-mode landing page and SaaS dashboard UI under a tight deadline. Kinetik UI nailed the structure on the first iteration and shipped clean front-end code right on schedule.”",
         rev2_role: "Product Lead, NordStack",
-        rev3_tag: "10x Ad Creatives Pack",
+        rev3_tag: "10x Ad Banners",
         rev3_quote: "“AdCraft Lab completely refreshed our Meta and Instagram static ad creatives. Turnaround was under 36 hours, and two of their banners immediately became our highest-ROAS ads this quarter.”",
         rev3_role: "Growth Director, Aura Botanics",
-        rev4_tag: "Full Brand Identity",
+        rev4_tag: "Brand Identity",
         rev4_quote: "“From typography hierarchy to packaging and merch mockups, Grid & Type built a cohesive visual system that immediately elevated our positioning. Seamless communication from day one.”",
         rev4_role: "Founder, KOVA Roasters",
         pay_eyebrow: "Global Billing & Security",
@@ -2193,10 +2390,10 @@
         rev2_tag: "Landingpage + Dev",
         rev2_quote: "„Wir brauchten kurzfristig eine konversionsstarke Dark-Mode-Landingpage und ein SaaS-Dashboard. Kinetik UI hat Struktur und sauberen Code pünktlich geliefert.“",
         rev2_role: "Product Lead, NordStack",
-        rev3_tag: "10x Ad Creatives Pack",
+        rev3_tag: "10x Ad Banners",
         rev3_quote: "„AdCraft Lab hat unsere Meta- und Instagram-Creatives komplett erneuert. Lieferung in unter 36 Stunden und sofort unser bester ROAS im Quartal.“",
         rev3_role: "Growth Director, Aura Botanics",
-        rev4_tag: "Full Brand Identity",
+        rev4_tag: "Brand Identity",
         rev4_quote: "„Von der Typografie bis zu Packaging- und Merch-Mockups hat Grid & Type ein stimmiges System geschaffen, das unsere Marke sofort aufgewertet hat.“",
         rev4_role: "Founder, KOVA Roasters",
         pay_eyebrow: "Weltweite Abrechnung",
@@ -2279,10 +2476,10 @@
         rev2_tag: "Лендинг + Вёрстка",
         rev2_quote: "«Нужен был конверсионный лендинг и интерфейс дашборда в сжатые сроки. Kinetik UI с первой итерации попали в стиль и сдали чистый готовый код точно в дедлайн».",
         rev2_role: "Product Lead, NordStack",
-        rev3_tag: "Пакет 10 рекламных баннеров",
+        rev3_tag: "Пакет 10 баннеров",
         rev3_quote: "«AdCraft Lab полностью обновили наши статичные креативы для Meta и Instagram. Сдали меньше чем за 36 часов — два баннера сразу дали лучший ROAS за квартал».",
         rev3_role: "Growth Director, Aura Botanics",
-        rev4_tag: "Полная айдентика бренда",
+        rev4_tag: "Полный брендбук",
         rev4_quote: "«От правил типографики до упаковки и мерча — Grid & Type собрали целостную визуальную систему, которая сразу подняла восприятие нашего бренда на новый уровень».",
         rev4_role: "Основатель, KOVA Roasters",
         pay_eyebrow: "Удобные расчёты по всему миру",
@@ -2365,10 +2562,10 @@
         rev2_tag: "Лендинг + Верстка",
         rev2_quote: "«Потрібен був конверсійний лендинг та інтерфейс дашборду у стислі терміни. Kinetik UI з першої ітерації влучили у стиль і здали чистий код точно в дедлайн».",
         rev2_role: "Product Lead, NordStack",
-        rev3_tag: "Пакет 10 рекламних банерів",
+        rev3_tag: "Пакет 10 банерів",
         rev3_quote: "«AdCraft Lab повністю оновили наші статичні креативи для Meta та Instagram. Здали менш ніж за 36 годин — два банери одразу дали найкращий ROAS за квартал».",
         rev3_role: "Growth Director, Aura Botanics",
-        rev4_tag: "Повна айдентика бренду",
+        rev4_tag: "Повний брендбук",
         rev4_quote: "«Від правил типографіки до пакування та мерчу — Grid & Type зібрали цілісну візуальну систему, яка одразу підняла сприйняття нашого бренду на новий рівень».",
         rev4_role: "Засновник, KOVA Roasters",
         pay_eyebrow: "Зручні розрахунки по всьому світу",
