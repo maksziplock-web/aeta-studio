@@ -873,6 +873,238 @@
       opacity: 0.65;
     }
 
+
+    /* =========================================================================
+       PROCESS (HOW WE WORK), TESTIMONIALS & PAYMENT METHODS
+       ========================================================================= */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .process-card {
+      position: relative;
+      background: var(--card);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 30px 26px;
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease;
+    }
+
+    .process-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-hover);
+    }
+
+    .step-number {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .step-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    /* TESTIMONIALS GRID */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .review-card {
+      position: relative;
+      background: var(--card);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 34px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.09);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease;
+    }
+
+    .review-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-hover);
+    }
+
+    .review-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .review-stars {
+      color: #ffffff;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+    }
+
+    .review-tag {
+      font-family: var(--font-display);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 5px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .review-quote {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #dedee2;
+      margin-bottom: 26px;
+      font-weight: 300;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .author-name {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .author-role {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .author-loc {
+      font-family: var(--font-display);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* PAYMENT METHODS */
+    .payments-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .payment-card {
+      position: relative;
+      background: var(--card);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 175px;
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .payment-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-hover);
+    }
+
+    .pay-icon-wrap {
+      width: 42px;
+      height: 42px;
+      border-radius: 11px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .pay-icon-wrap svg {
+      width: 20px;
+      height: 20px;
+      stroke: #ffffff;
+      fill: none;
+      stroke-width: 1.7;
+    }
+
+    .pay-title {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .pay-desc {
+      font-size: 12.5px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .payment-terms-bar {
+      margin-top: 22px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .payment-terms-bar strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    @media (max-width: 960px) {
+      .process-grid, .payments-grid { grid-template-columns: repeat(2, 1fr); }
+      .reviews-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .process-grid, .payments-grid { grid-template-columns: 1fr; }
+      .review-card { padding: 26px 22px; }
+    }
+
   </style>
 </head>
 <body>
@@ -899,7 +1131,9 @@
       <a href="#" class="brand-mini">AETA STUDIO</a>
       <nav class="nav-menu">
         <a href="#services" data-i18n="nav_services">Services &amp; Pricing</a>
-        <a href="#contact" data-i18n="nav_contact">Direct Contact</a>
+        <a href="#reviews" data-i18n="nav_reviews">Client Reviews</a>
+        <a href="#payments" data-i18n="nav_payments">Payment</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
       </nav>
       <div class="header-actions">
         <div class="lang-switcher" id="lang-switcher">
@@ -1159,6 +1393,208 @@
     </div>
   </div>
 
+  <!-- HOW WE WORK (PROCESS) -->
+  <section class="wrapper" id="process">
+    <div class="block-header">
+      <div><span class="block-eyebrow" data-i18n="proc_eyebrow">Workflow &amp; Transparency</span></div>
+      <h2 class="block-title" data-i18n="proc_title">How We Work</h2>
+    </div>
+
+    <div class="process-grid">
+      <div class="process-card">
+        <span class="step-number" data-i18n="step1_num">Step 01</span>
+        <h3 class="step-title" data-i18n="step1_title">Brief &amp; Scope</h3>
+        <p class="step-desc" data-i18n="step1_desc">Message us in any messenger. We discuss your goals, references, exact timeline, and lock in a fixed price within 15 minutes.</p>
+      </div>
+
+      <div class="process-card">
+        <span class="step-number" data-i18n="step2_num">Step 02</span>
+        <h3 class="step-title" data-i18n="step2_title">Concept &amp; Direction</h3>
+        <p class="step-desc" data-i18n="step2_desc">We craft the initial visual concepts, layout architecture, or brand marks and present high-resolution previews for your feedback.</p>
+      </div>
+
+      <div class="process-card">
+        <span class="step-number" data-i18n="step3_num">Step 03</span>
+        <h3 class="step-title" data-i18n="step3_title">Refinement</h3>
+        <p class="step-desc" data-i18n="step3_desc">We polish every detail, typography, and color balance based on your comments until the final result matches your vision 100%.</p>
+      </div>
+
+      <div class="process-card">
+        <span class="step-number" data-i18n="step4_num">Step 04</span>
+        <h3 class="step-title" data-i18n="step4_title">Master Delivery</h3>
+        <p class="step-desc" data-i18n="step4_desc">You receive all production-ready master files (vectors, source layouts, guideline books, or deployed code) with full commercial rights.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARCHITECTURAL INTERSECTION DIVIDER -->
+  <div class="section-divider">
+    <div class="divider-nodes">
+      <span class="node-cross node-left"></span>
+      <span class="node-cross node-center"></span>
+      <span class="node-cross node-right"></span>
+    </div>
+  </div>
+
+  <!-- CLIENT TESTIMONIALS -->
+  <section class="wrapper" id="reviews">
+    <div class="block-header">
+      <div><span class="block-eyebrow" data-i18n="rev_eyebrow">Verified Client Feedback</span></div>
+      <h2 class="block-title" data-i18n="rev_title">Client Reviews</h2>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div>
+          <div class="review-top">
+            <span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="review-tag" data-i18n="rev1_tag">Custom Logo &amp; Brandbook</span>
+          </div>
+          <p class="review-quote" data-i18n="rev1_quote">
+            &ldquo;AETA Studio delivered a razor-sharp minimalist mark and complete brand guideline book for our fintech launch. The geometry and attention to detail rival agencies charging ten times their rate.&rdquo;
+          </p>
+        </div>
+        <div class="review-author">
+          <div>
+            <div class="author-name">Marcus Vance</div>
+            <div class="author-role" data-i18n="rev1_role">Co-Founder, Veloce Labs</div>
+          </div>
+          <span class="author-loc">Austin, USA</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div>
+          <div class="review-top">
+            <span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="review-tag" data-i18n="rev2_tag">Landing Page + Dev</span>
+          </div>
+          <p class="review-quote" data-i18n="rev2_quote">
+            &ldquo;We needed a high-converting dark-mode landing page and SaaS dashboard UI under a tight deadline. Kinetik UI nailed the structure on the first iteration and shipped clean front-end code right on schedule.&rdquo;
+          </p>
+        </div>
+        <div class="review-author">
+          <div>
+            <div class="author-name">Lukas Lindner</div>
+            <div class="author-role" data-i18n="rev2_role">Product Lead, NordStack</div>
+          </div>
+          <span class="author-loc">Berlin, DE</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div>
+          <div class="review-top">
+            <span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="review-tag" data-i18n="rev3_tag">10x Ad Creatives Pack</span>
+          </div>
+          <p class="review-quote" data-i18n="rev3_quote">
+            &ldquo;AdCraft Lab completely refreshed our Meta and Instagram static ad creatives. Turnaround was under 36 hours, and two of their banners immediately became our highest-ROAS ads this quarter.&rdquo;
+          </p>
+        </div>
+        <div class="review-author">
+          <div>
+            <div class="author-name">Chloe Mercer</div>
+            <div class="author-role" data-i18n="rev3_role">Growth Director, Aura Botanics</div>
+          </div>
+          <span class="author-loc">London, UK</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div>
+          <div class="review-top">
+            <span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="review-tag" data-i18n="rev4_tag">Full Brand Identity</span>
+          </div>
+          <p class="review-quote" data-i18n="rev4_quote">
+            &ldquo;From typography hierarchy to packaging and merch mockups, Grid &amp; Type built a cohesive visual system that immediately elevated our positioning. Seamless communication from day one.&rdquo;
+          </p>
+        </div>
+        <div class="review-author">
+          <div>
+            <div class="author-name">Daniel K.</div>
+            <div class="author-role" data-i18n="rev4_role">Founder, KOVA Roasters</div>
+          </div>
+          <span class="author-loc">Toronto, CA</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARCHITECTURAL INTERSECTION DIVIDER -->
+  <div class="section-divider">
+    <div class="divider-nodes">
+      <span class="node-cross node-left"></span>
+      <span class="node-cross node-center"></span>
+      <span class="node-cross node-right"></span>
+    </div>
+  </div>
+
+  <!-- PAYMENT METHODS & TERMS -->
+  <section class="wrapper" id="payments">
+    <div class="block-header">
+      <div><span class="block-eyebrow" data-i18n="pay_eyebrow">Global Billing &amp; Security</span></div>
+      <h2 class="block-title" data-i18n="pay_title">Payment Methods</h2>
+    </div>
+
+    <div class="payments-grid">
+      <div class="payment-card">
+        <div class="pay-icon-wrap">
+          <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+        </div>
+        <div>
+          <h3 class="pay-title" data-i18n="pay1_title">Visa / Mastercard</h3>
+          <p class="pay-desc" data-i18n="pay1_desc">Instant payment via credit or debit card, Apple Pay, Google Pay, or direct bank card transfer.</p>
+        </div>
+      </div>
+
+      <div class="payment-card">
+        <div class="pay-icon-wrap">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <div>
+          <h3 class="pay-title" data-i18n="pay2_title">PayPal / Wise / Revolut</h3>
+          <p class="pay-desc" data-i18n="pay2_desc">Fast international transfers in USD, EUR, or GBP for clients across the US, UK, Canada, and Europe.</p>
+        </div>
+      </div>
+
+      <div class="payment-card">
+        <div class="pay-icon-wrap">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        </div>
+        <div>
+          <h3 class="pay-title" data-i18n="pay3_title">USDT / USDC / Crypto</h3>
+          <p class="pay-desc" data-i18n="pay3_desc">Borderless settlements via USDT (TRC-20 / ERC-20), USDC, Bitcoin, Ethereum, or Binance Pay with zero delay.</p>
+        </div>
+      </div>
+
+      <div class="payment-card">
+        <div class="pay-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div>
+          <h3 class="pay-title" data-i18n="pay4_title">SEPA / SWIFT Invoice</h3>
+          <p class="pay-desc" data-i18n="pay4_desc">Official commercial invoicing and Payoneer / IBAN bank wire transfers for corporate accounts.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="payment-terms-bar">
+      <span data-i18n="pay_terms_left"><strong>Flexible Milestone Billing:</strong> 50% deposit to initiate work &mdash; 50% upon final approval before master file handoff.</span>
+      <span data-i18n="pay_terms_right">USD &bull; EUR &bull; GBP &bull; USDT &bull; UAH</span>
+    </div>
+  </section>
+
+  <!-- ARCHITECTURAL INTERSECTION DIVIDER -->
+  <div class="section-divider">
+    <div class="divider-nodes">
+      <span class="node-cross node-left"></span>
+      <span class="node-cross node-center"></span>
+      <span class="node-cross node-right"></span>
+    </div>
+  </div>
+
   <!-- DIRECT MESSENGERS -->
   <section class="wrapper contact-section" id="contact">
     <div class="block-header">
@@ -1297,7 +1733,7 @@
     });
 
     // Bidirectional Scroll Reveal Observer (animates every time scrolling both down and up)
-    const revealTargets = document.querySelectorAll('.hero-logo-container, .hero-bottom, .block-header, .section-divider, .service-card, .messenger-btn, footer');
+    const revealTargets = document.querySelectorAll('.hero-logo-container, .hero-bottom, .block-header, .section-divider, .service-card, .process-card, .review-card, .payment-card, .payment-terms-bar, .messenger-btn, footer');
     revealTargets.forEach((el) => {
       el.style.animation = 'none';
       el.classList.add('reveal');
@@ -1306,6 +1742,13 @@
     // Stagger cards in services grid (pairs per row)
     document.querySelectorAll('.service-card').forEach((card, idx) => {
       card.style.setProperty('--delay', `${(idx % 2) * 90}ms`);
+    });
+
+    document.querySelectorAll('.process-card, .payment-card').forEach((card, idx) => {
+      card.style.setProperty('--delay', `${(idx % 4) * 75}ms`);
+    });
+    document.querySelectorAll('.review-card').forEach((card, idx) => {
+      card.style.setProperty('--delay', `${(idx % 2) * 95}ms`);
     });
 
     // Stagger messenger buttons (3 per row)
@@ -1343,6 +1786,48 @@
     const translations = {
       en: {
         label: "EN",
+        nav_reviews: "Reviews",
+        nav_payments: "Payment",
+        proc_eyebrow: "Workflow & Transparency",
+        proc_title: "How We Work",
+        step1_num: "Step 01",
+        step1_title: "Brief & Scope",
+        step1_desc: "Message us in any messenger. We discuss your goals, references, exact timeline, and lock in a fixed price within 15 minutes.",
+        step2_num: "Step 02",
+        step2_title: "Concept & Direction",
+        step2_desc: "We craft the initial visual concepts, layout architecture, or brand marks and present high-resolution previews for your feedback.",
+        step3_num: "Step 03",
+        step3_title: "Refinement",
+        step3_desc: "We polish every detail, typography, and color balance based on your comments until the final result matches your vision 100%.",
+        step4_num: "Step 04",
+        step4_title: "Master Delivery",
+        step4_desc: "You receive all production-ready master files (vectors, source layouts, guideline books, or deployed code) with full commercial rights.",
+        rev_eyebrow: "Verified Client Feedback",
+        rev_title: "Client Reviews",
+        rev1_tag: "Custom Logo & Brandbook",
+        rev1_quote: "“AETA Studio delivered a razor-sharp minimalist mark and complete brand guideline book for our fintech launch. The geometry and attention to detail rival agencies charging ten times their rate.”",
+        rev1_role: "Co-Founder, Veloce Labs",
+        rev2_tag: "Landing Page + Dev",
+        rev2_quote: "“We needed a high-converting dark-mode landing page and SaaS dashboard UI under a tight deadline. Kinetik UI nailed the structure on the first iteration and shipped clean front-end code right on schedule.”",
+        rev2_role: "Product Lead, NordStack",
+        rev3_tag: "10x Ad Creatives Pack",
+        rev3_quote: "“AdCraft Lab completely refreshed our Meta and Instagram static ad creatives. Turnaround was under 36 hours, and two of their banners immediately became our highest-ROAS ads this quarter.”",
+        rev3_role: "Growth Director, Aura Botanics",
+        rev4_tag: "Full Brand Identity",
+        rev4_quote: "“From typography hierarchy to packaging and merch mockups, Grid & Type built a cohesive visual system that immediately elevated our positioning. Seamless communication from day one.”",
+        rev4_role: "Founder, KOVA Roasters",
+        pay_eyebrow: "Global Billing & Security",
+        pay_title: "Payment Methods",
+        pay1_title: "Visa / Mastercard",
+        pay1_desc: "Instant payment via credit or debit card, Apple Pay, Google Pay, or direct bank card transfer.",
+        pay2_title: "PayPal / Wise / Revolut",
+        pay2_desc: "Fast international transfers in USD, EUR, or GBP for clients across the US, UK, Canada, and Europe.",
+        pay3_title: "USDT / USDC / Crypto",
+        pay3_desc: "Borderless settlements via USDT (TRC-20 / ERC-20), USDC, Bitcoin, Ethereum, or Binance Pay with zero delay.",
+        pay4_title: "SEPA / SWIFT Invoice",
+        pay4_desc: "Official commercial invoicing and Payoneer / IBAN bank wire transfers for corporate accounts.",
+        pay_terms_left: "<strong>Flexible Milestone Billing:</strong> 50% deposit to initiate work &mdash; 50% upon final approval before master file handoff.",
+        pay_terms_right: "USD &bull; EUR &bull; GBP &bull; USDT &bull; UAH",
         nav_services: "Services & Pricing",
         nav_contact: "Direct Contact",
         nav_cta: "Start a Project",
@@ -1387,6 +1872,48 @@
       },
       de: {
         label: "DE",
+        nav_reviews: "Bewertungen",
+        nav_payments: "Zahlung",
+        proc_eyebrow: "Ablauf & Transparenz",
+        proc_title: "Arbeitsweise",
+        step1_num: "Schritt 01",
+        step1_title: "Briefing & Umfang",
+        step1_desc: "Schreiben Sie uns im Messenger. Wir klären Ziele, Referenzen, Zeitplan und fixieren den Preis innerhalb von 15 Minuten.",
+        step2_num: "Schritt 02",
+        step2_title: "Konzept & Entwurf",
+        step2_desc: "Wir entwickeln erste visuelle Konzepte, Layouts oder Marken-Symbole und präsentieren hochauflösende Previews.",
+        step3_num: "Schritt 03",
+        step3_title: "Feinschliff",
+        step3_desc: "Wir perfektionieren jedes Detail, Typografie und Farbbalance nach Ihrem Feedback, bis das Ergebnis zu 100 % überzeugt.",
+        step4_num: "Schritt 04",
+        step4_title: "Master-Übergabe",
+        step4_desc: "Sie erhalten alle produktionsfertigen Master-Dateien (Vektoren, offene Layouts, Brandbooks oder Code) inkl. voller Nutzungsrechte.",
+        rev_eyebrow: "Verifiziertes Kundenfeedback",
+        rev_title: "Kundenstimmen",
+        rev1_tag: "Logo & Brandbook",
+        rev1_quote: "„AETA Studio hat ein gestochen scharfes minimalistisches Logo und ein komplettes Brandbook für unseren Fintech-Launch geliefert. Qualität auf dem Niveau großer Agenturen.“",
+        rev1_role: "Co-Founder, Veloce Labs",
+        rev2_tag: "Landingpage + Dev",
+        rev2_quote: "„Wir brauchten kurzfristig eine konversionsstarke Dark-Mode-Landingpage und ein SaaS-Dashboard. Kinetik UI hat Struktur und sauberen Code pünktlich geliefert.“",
+        rev2_role: "Product Lead, NordStack",
+        rev3_tag: "10x Ad Creatives Pack",
+        rev3_quote: "„AdCraft Lab hat unsere Meta- und Instagram-Creatives komplett erneuert. Lieferung in unter 36 Stunden und sofort unser bester ROAS im Quartal.“",
+        rev3_role: "Growth Director, Aura Botanics",
+        rev4_tag: "Full Brand Identity",
+        rev4_quote: "„Von der Typografie bis zu Packaging- und Merch-Mockups hat Grid & Type ein stimmiges System geschaffen, das unsere Marke sofort aufgewertet hat.“",
+        rev4_role: "Founder, KOVA Roasters",
+        pay_eyebrow: "Weltweite Abrechnung",
+        pay_title: "Zahlungsmethoden",
+        pay1_title: "Visa / Mastercard",
+        pay1_desc: "Sofortzahlung per Kredit- oder Debitkarte, Apple Pay, Google Pay oder direkter Kartenüberweisung.",
+        pay2_title: "PayPal / Wise / Revolut",
+        pay2_desc: "Schnelle internationale Zahlungen in EUR, USD oder GBP für Kunden in Europa, UK und Nordamerika.",
+        pay3_title: "USDT / USDC / Krypto",
+        pay3_desc: "Grenzüberschreitende Zahlungen via USDT (TRC-20 / ERC-20), USDC, Bitcoin, Ethereum oder Binance Pay ohne Verzögerung.",
+        pay4_title: "SEPA / SWIFT Rechnung",
+        pay4_desc: "Offizielle Rechnungsstellung und SEPA- / IBAN- / Payoneer-Überweisung für Unternehmenskunden.",
+        pay_terms_left: "<strong>Flexible Etappenzahlung:</strong> 50 % Anzahlung zum Projektstart &mdash; 50 % nach finaler Freigabe vor Dateiübergabe.",
+        pay_terms_right: "EUR &bull; USD &bull; GBP &bull; USDT",
         nav_services: "Leistungen & Preise",
         nav_contact: "Direktkontakt",
         nav_cta: "Projekt starten",
@@ -1431,6 +1958,48 @@
       },
       ru: {
         label: "RU",
+        nav_reviews: "Отзывы",
+        nav_payments: "Оплата",
+        proc_eyebrow: "Прозрачный процесс",
+        proc_title: "Как мы работаем",
+        step1_num: "Этап 01",
+        step1_title: "Бриф и оценка",
+        step1_desc: "Пишете нам в удобный мессенджер. За 15 минут обсуждаем задачу, референсы, точные сроки и фиксируем итоговую стоимость.",
+        step2_num: "Этап 02",
+        step2_title: "Концепт и превью",
+        step2_desc: "Разрабатываем первые визуальные концепты, структуру макета или варианты знака и показываем презентацию проекта.",
+        step3_num: "Этап 03",
+        step3_title: "Доработка деталей",
+        step3_desc: "Доводим типографику, цвет и композицию по вашим комментариям до 100% попадания в задачу без бюрократии.",
+        step4_num: "Этап 04",
+        step4_title: "Передача исходников",
+        step4_desc: "Передаём полный пакет мастер-файлов (векторы, рабочие макеты, гайдбуки или готовую вёрстку) со всеми правами.",
+        rev_eyebrow: "Обратная связь клиентов",
+        rev_title: "Отзывы о работе",
+        rev1_tag: "Логотип и брендбук",
+        rev1_quote: "«AETA Studio разработали для нашего финтех-проекта минималистичный знак и полный гайдбук. Геометрия и внимание к деталям — на уровне студий с чеком в десять раз выше».",
+        rev1_role: "Сооснователь, Veloce Labs",
+        rev2_tag: "Лендинг + Вёрстка",
+        rev2_quote: "«Нужен был конверсионный лендинг и интерфейс дашборда в сжатые сроки. Kinetik UI с первой итерации попали в стиль и сдали чистый готовый код точно в дедлайн».",
+        rev2_role: "Product Lead, NordStack",
+        rev3_tag: "Пакет 10 рекламных баннеров",
+        rev3_quote: "«AdCraft Lab полностью обновили наши статичные креативы для Meta и Instagram. Сдали меньше чем за 36 часов — два баннера сразу дали лучший ROAS за квартал».",
+        rev3_role: "Growth Director, Aura Botanics",
+        rev4_tag: "Полная айдентика бренда",
+        rev4_quote: "«От правил типографики до упаковки и мерча — Grid & Type собрали целостную визуальную систему, которая сразу подняла восприятие нашего бренда на новый уровень».",
+        rev4_role: "Основатель, KOVA Roasters",
+        pay_eyebrow: "Удобные расчёты по всему миру",
+        pay_title: "Способы оплаты",
+        pay1_title: "Visa / Mastercard",
+        pay1_desc: "Мгновенная оплата банковской картой любого банка, Apple Pay, Google Pay или прямым переводом на карту.",
+        pay2_title: "PayPal / Wise / Revolut",
+        pay2_desc: "Быстрые международные переводы в USD, EUR и GBP для клиентов из Европы, США, Канады и Великобритании.",
+        pay3_title: "USDT / USDC / Криптовалюта",
+        pay3_desc: "Моментальная оплата без границ и комиссий в USDT (TRC-20 / ERC-20), USDC, BTC, ETH или через Binance Pay.",
+        pay4_title: "Счёт SEPA / SWIFT / Payoneer",
+        pay4_desc: "Официальная оплата по инвойсу (IBAN / SEPA / Payoneer) для компаний и зарубежных заказчиков.",
+        pay_terms_left: "<strong>Безопасная поэтапная оплата:</strong> 50% предоплата перед стартом &mdash; 50% после утверждения результата перед передачей исходников.",
+        pay_terms_right: "USD &bull; EUR &bull; USDT &bull; UAH",
         nav_services: "Услуги и прайс",
         nav_contact: "Контакты",
         nav_cta: "Обсудить проект",
@@ -1475,6 +2044,48 @@
       },
       uk: {
         label: "UA",
+        nav_reviews: "Відгуки",
+        nav_payments: "Оплата",
+        proc_eyebrow: "Прозорий процес",
+        proc_title: "Як ми працюємо",
+        step1_num: "Етап 01",
+        step1_title: "Бриф та оцінка",
+        step1_desc: "Пишете нам у зручний месенджер. За 15 хвилин обговорюємо задачу, референси, точні терміни та фіксуємо вартість.",
+        step2_num: "Етап 02",
+        step2_title: "Концепт та прев'ю",
+        step2_desc: "Розробляємо перші візуальні концепти, структуру макета або варіанти знака та показуємо презентацію проєкту.",
+        step3_num: "Етап 03",
+        step3_title: "Доопрацювання деталей",
+        step3_desc: "Доводимо типографіку, колір та композицію за вашими коментарями до 100% влучання в задачу без бюрократії.",
+        step4_num: "Етап 04",
+        step4_title: "Передача вихідних файлів",
+        step4_desc: "Передаємо повний пакет майстер-файлів (вектори, робочі макети, гайдбуки або готову верстку) з усіма правами.",
+        rev_eyebrow: "Зворотний зв'язок клієнтів",
+        rev_title: "Відгуки про роботу",
+        rev1_tag: "Логотип та брендбук",
+        rev1_quote: "«AETA Studio розробили для нашого фінтех-проєкту мінімалістичний знак та повний гайдбук. Геометрія та увага до деталей — на рівні студій з чеком удесятеро вищим».",
+        rev1_role: "Співзасновник, Veloce Labs",
+        rev2_tag: "Лендинг + Верстка",
+        rev2_quote: "«Потрібен був конверсійний лендинг та інтерфейс дашборду у стислі терміни. Kinetik UI з першої ітерації влучили у стиль і здали чистий код точно в дедлайн».",
+        rev2_role: "Product Lead, NordStack",
+        rev3_tag: "Пакет 10 рекламних банерів",
+        rev3_quote: "«AdCraft Lab повністю оновили наші статичні креативи для Meta та Instagram. Здали менш ніж за 36 годин — два банери одразу дали найкращий ROAS за квартал».",
+        rev3_role: "Growth Director, Aura Botanics",
+        rev4_tag: "Повна айдентика бренду",
+        rev4_quote: "«Від правил типографіки до пакування та мерчу — Grid & Type зібрали цілісну візуальну систему, яка одразу підняла сприйняття нашого бренду на новий рівень».",
+        rev4_role: "Засновник, KOVA Roasters",
+        pay_eyebrow: "Зручні розрахунки по всьому світу",
+        pay_title: "Способи оплати",
+        pay1_title: "Visa / Mastercard",
+        pay1_desc: "Миттєва оплата банківською карткою будь-якого банку, Apple Pay, Google Pay або прямим переказом на картку.",
+        pay2_title: "PayPal / Wise / Revolut",
+        pay2_desc: "Швидкі міжнародні перекази в USD, EUR та GBP для клієнтів з Європи, США, Канади та Великої Британії.",
+        pay3_title: "USDT / USDC / Криптовалюта",
+        pay3_desc: "Моментальна оплата без кордонів та комісій у USDT (TRC-20 / ERC-20), USDC, BTC, ETH або через Binance Pay.",
+        pay4_title: "Рахунок SEPA / SWIFT / Payoneer",
+        pay4_desc: "Офіційна оплата за інвойсом (IBAN / SEPA / Payoneer) для компаній та іноземних замовників.",
+        pay_terms_left: "<strong>Безпечна поетапна оплата:</strong> 50% передоплата перед стартом &mdash; 50% після затвердження результату перед передачею файлів.",
+        pay_terms_right: "USD &bull; EUR &bull; USDT &bull; UAH",
         nav_services: "Послуги та прайс",
         nav_contact: "Контакти",
         nav_cta: "Обговорити проєкт",
