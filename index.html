@@ -36,13 +36,18 @@
       color: var(--text);
       font-family: var(--font-sans);
       -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
+      max-width: 100%;
     }
 
     body {
       background-color: var(--bg);
       color: var(--text);
-      overflow-x: hidden;
+      overflow-x: clip;
+      max-width: 100%;
+      width: 100%;
       position: relative;
+      touch-action: pan-y;
     }
 
     /* =========================================================================
@@ -157,6 +162,7 @@
       z-index: 3;
       display: flex;
       justify-content: center;
+      overflow: hidden;
     }
 
     .divider-nodes {
@@ -1105,6 +1111,80 @@
       .review-card { padding: 26px 22px; }
     }
 
+
+    .service-card, .process-card, .review-card, .payment-card, .messenger-btn {
+      min-width: 0;
+    }
+
+    .brand-mini, .header-btn, .lang-btn {
+      white-space: nowrap;
+    }
+
+    @media (max-width: 600px) {
+      .wrapper {
+        padding: 72px 18px;
+      }
+      .header-inner {
+        padding: 12px 16px;
+        gap: 8px;
+      }
+      .brand-mini {
+        font-size: 11px;
+        letter-spacing: 0.22em;
+      }
+      .header-actions {
+        gap: 8px;
+      }
+      .lang-btn {
+        padding: 7px 10px;
+        font-size: 10px;
+        letter-spacing: 0.1em;
+      }
+      .header-btn {
+        padding: 8px 13px;
+        font-size: 10px;
+        letter-spacing: 0.1em;
+      }
+      .block-title {
+        font-size: 24px;
+        padding: 0 8px;
+      }
+      .block-header {
+        margin-bottom: 42px;
+      }
+      .service-card {
+        padding: 24px 20px;
+        min-height: auto;
+      }
+      .card-top-row {
+        gap: 12px;
+        align-items: flex-start;
+      }
+      .service-name {
+        font-size: 18px;
+        line-height: 1.25;
+      }
+      .price-amount {
+        font-size: 22px;
+      }
+      .service-description {
+        font-size: 13.5px;
+        max-width: 100%;
+      }
+      .card-footer-line {
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        gap: 8px;
+      }
+      .rails-inner {
+        border-left: none;
+        border-right: none;
+      }
+      .node-left, .node-right {
+        display: none;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -2030,7 +2110,7 @@
         s7_name: "Полный брендбук",
         s7_desc: "Комплексное руководство по бренду: деловая полиграфия, упаковка, мерч и одежда, наружная реклама и полные правила айдентики.",
         s7_foot: "Полное руководство",
-        s8_name: "Пользовательский UI / Дашборд",
+        s8_name: "Кастомный UI / Дашборд",
         s8_desc: "Сложные SaaS-сервисы, аналитические дашборды, админ-панели и масштабируемые дизайн-системы для цифровых продуктов.",
         s8_foot: "SaaS и продуктовый UI",
         contact_eyebrow: "Прямая связь со студией",
@@ -2116,7 +2196,7 @@
         s7_name: "Повний брендбук",
         s7_desc: "Комплексне керівництво по бренду: ділова поліграфія, пакування, мерч та одяг, зовнішня реклама і повні правила айдентики.",
         s7_foot: "Повне керівництво",
-        s8_name: "Користувацький UI / Дашборд",
+        s8_name: "Кастомний UI / Дашборд",
         s8_desc: "Складні SaaS-сервіси, аналітичні дашборди, адмін-панелі та масштабовані дизайн-системи для цифрових продуктів.",
         s8_foot: "SaaS та продуктовий UI",
         contact_eyebrow: "Прямий зв'язок зі студією",
